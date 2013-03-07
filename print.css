@@ -1,0 +1,120 @@
+/**************** Page and tag styles ****************/
+
+body
+{margin:0; padding:0; color:#303030; background:#fafafa; font:76% Verdana,Tahoma,sans-serif;}
+
+ul
+{list-style:circle; margin:15px 0 20px 0; font-size:0.9em;}
+
+li
+{margin:0 0 8px 25px;}
+
+a
+{color:#99103a; font-weight:bold; text-decoration:none;}
+
+a:hover
+{color:#505050; text-decoration:underline;}
+
+img
+{float:left; margin:0 15px 15px 0; padding:1px; background:#ffffff; border:1px solid #d0d0d0;}
+
+a img
+{border-color:#d85d5d;}
+
+a img:hover
+{background:#d85d5d; border-color:#d85d5d;}
+
+label
+{display:block; width:50px float:left}
+
+col.brand
+{width:250px;}
+
+col.generic
+{width:250px;}
+
+col.strength
+{width:250px;}
+
+table
+{border-collapse:collapse; border:1px solid #585858; padding:10px 10px 10px 10px; margin:10px;}
+
+th
+{font-size:1.2em; text-align:left; padding:10px 7px 10px 5px; border-bottom:1px solid #d0d0d0;}
+
+td
+{padding:7px 3px 7px 8px;border-bottom:1px solid #d0d0d0;}
+
+tr.odd
+{background-color:#F2F2F2;}
+
+tr.even
+{background-color:#ffffff;}
+
+/**************** Sidebar area styles ****************/
+
+#navbar
+{display:none;}
+
+#sidebar
+{display: none;}
+
+/**************** Navigation menu styles ****************/
+
+#menu h1
+{display:none;}
+
+/**************** Content area styles ****************/
+
+#content
+{width:775px; margin:0 0 0 5px; padding:20px 0;}
+
+#content p
+{margin:0 0 20px 0; line-height:1.5em;}
+
+#content h1
+{margin:0; color:#99103a; font-size:4em; letter-spacing:-5px; text-align:center;}
+
+#content h2
+{margin:0; color:#808080; font-weight:normal; font-size:2.5em; letter-spacing:-2px; text-align:center;}
+
+#content h3
+{clear:both; margin:30px 0 10px 0; color:#0e2b87; font-weight:normal; font-size: 2em; letter-spacing:-2px;}
+
+/***Results Area***/
+
+#results
+{width:775px; margin-left: 20px; margin-top:80px;}
+
+#results h1
+{text-align:center; font-size:1.5em; font-weight:bold;}
+
+#results table
+{border:none; padding:10px 10px 10px 10px; margin-left:auto; margin-right:auto; text-align:center; width:500px;}
+
+#results th
+{font-weight:bold; text-align:left; padding:10px 7px 10px 5px; border:none;}
+
+#results td
+{padding:7px 3px 7px 8px; border:none; text-align:right;}
+
+#results col.title
+{width:250px;}
+
+#results col.entry
+{width:250px;}
+
+/***No Print Details***/
+
+#noprint
+{display:none;}
+
+/*** Print Logo ***/
+
+#logo
+{width:775px; height: 75px; margin-left: 20px; font-size:1.2em; text-align:right;}
+
+/*** Print Warning ***/
+
+#warning
+{width:775px; height: 75px; margin-left:20px; margin-top:40px; font-size:0.8em; text-align:center;}

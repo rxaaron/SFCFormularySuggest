@@ -1,0 +1,156 @@
+/* 
+    Document   : SFCform
+    Created on : Feb 13, 2013, 9:01:45 PM
+    Author     : rxaaron
+    Description: for GMAP/Encore project:formulary
+*/
+
+body
+{margin:0; padding:0; color:#303030; background:#fafafa; font:76% Verdana,Tahoma,sans-serif;}
+
+/**Navigation Bar**/
+
+#navbar
+{position:absolute; top:0; left:0; width:100%; height:30px; padding-left:220px; overflow:hidden; background:#e0e0e0; border-bottom:2px solid #c0c0c0; text-align:left;}
+
+body > #navbar
+{position:fixed;}
+
+#navbar ul
+{list-style-type:none; margin-left:5px; padding:0 5px 10px 5px; margin-top:4px;}
+
+#navbar li
+{display:inline-block; color:#50477d; padding-top:2px; padding-bottom:5px; border-top:solid 2px #50477d; border-right:solid 2px #50477d; border-left:solid 2px #50477d; background:#d1d1d1; border-top-left-radius:15px; border-top-right-radius:15px;}
+
+#navbar li:hover
+{color:#303030; background:#fafafa;}
+
+#navbar li.active
+{color:#477d6b; background:#fafafa;}
+
+#navbar a
+{color:inherit; padding:3px 20px 1px 20px; font-size:1.1em; font-weight:semi-bold; text-decoration:none; border-top-left-radius:15px; border-top-right-radius:15px;}
+
+/**Side Bar**/
+
+#sidebar
+{position:absolute; top:30px; left:0px; height:100%; overflow:auto; background:#e0e0e0; border-right:2px solid #c0c0c0; text-align:right;}
+
+body > #sidebar
+{position:fixed;}
+
+#sidebar h1
+{margin:20px 18px 0 5px; color:#50477d; font-size:1.6em; letter-spacing:-1px;}
+
+#sidebar h2
+{margin:0 20px 18px 5px; color:#477d6b; font-size:1.1em; font-weight:bold; letter-spacing:-1px;}
+
+#sidebar h3
+{margin:20px 18px 4px 5px; font-size:0.8em; color:#7d4759;}
+
+#sidebar a
+{color:#7d4759;}
+
+/**Menu Bar**/
+
+#menu h1
+{display:block; width:192px; text-align:left; padding:5px 0px 5px 5px; color:#50477d; background:#c0c0c0; border-top-right-radius: 10px 10px; border-bottom-right-radius: 10px 10px; font-size:1.8em; font-weight:bold; text-decoration:none;}
+
+#menu h1.active
+{padding:5px 18px 5px 0; background:#fafafa; border-top:3px solid #0e2b87; border-bottom:3px solid #0e2b87; border-left:3px solid #0e2b87;}
+
+#menu a
+{display:block; width:175px; text-align:right; margin-left:27px; padding:5px 18px 5px 0; color:#606060; background:#e0e0e0; font-size:1.1em; font-weight:normal; text-decoration:none; border-top-left-radius: 12px 12px; border-bottom-left-radius: 12px 12px;}
+
+#menu a:hover 
+{color:#303030; background:#f0f0f0;}
+
+#menu a.active
+{padding:5px 18px 5px 0; color:#477d6b; background:#fafafa;}
+
+#menu a.active:hover
+{color:#99103a; background:#fafafa; border-top:2px solid #0e2b87; border-bottom:2px solid #0e2b87; border-left:2px solid #0e2b87;}
+
+#menu a.mousefix
+{cursor:pointer;}
+
+/**Main Area**/
+
+#main
+{width:650px; margin:20px 0 0 260px; padding:20px 0; background:#fafafa;}
+
+#main p
+{margin:0 0 20px 0; line-height:1.5em;}
+
+#main h1
+{margin:0; color:#50477d; font-size:3em; letter-spacing:-2px; text-align:center;}
+
+#main h2
+{margin:0; color:#477d6b; font-weight:normal; font-size:2em; padding:15px 0 5px 0; letter-spacing:-1px;}
+
+#main h3
+{margin:0; color:#7d4759; font-weight:normal; font-size: 1.5em; letter-spacing:-1px;}
+
+#main col.brand
+{width:200px;}
+
+#main col.generic
+{width:200px;}
+
+#main col.strength
+{width:150px;}
+
+#main col.recommend
+{width:100px}
+
+#main table
+{border-collapse:collapse; border:1px solid #585858; padding:3px 7px 2px 7px;}
+
+#main th
+{text-align:left; background-color:#585858; color:#ffffff;}
+
+#main tr.odd
+{background-color:#f2f2f2;}
+
+#main tr.even
+{background-color:#ffffff;}
+
+/***Results Area***/
+
+#results
+{width:775px; margin-left: 20px;}
+
+#results table
+{border:none; padding:10px 10px 10px 10px; margin:10px;}
+
+#results th
+{font-weight:bold; text-align:left; padding:10px 7px 10px 5px; border:none;}
+
+#results td
+{padding:7px 3px 7px 8px; border:none;}
+
+#results col.title
+{width:250px;}
+
+#results col.entry
+{width:250px;}
+
+/*** No Print Area ***/
+
+#noprint
+{width:500px}
+
+#noprint h3
+{margin:20px 18px 4px 5px; font-size:0.8em; color:#7d4759; text-align:center;}
+
+#noprint a
+{color:#7d4759;}
+
+/*** Print Logo ***/
+
+#logo
+{display:none;}
+
+/*** Print Warning ***/
+#warning
+{display:none;}
