@@ -51,7 +51,7 @@
                 echo "<tr><td>Interchange Name:</td><td><select name=\"interchange\">";
                 while ($InterchangeResult = $Interchangequery->fetch_object()){
                     if($InterchangeResult->ID==$DrugResult->InterchangeKey){
-                        echo "<option value=\"".$InterchangeResultResult->ID."\" label=\"".$InterchangeResult->InterchangeName."\" seclected />";
+                        echo "<option value=\"".$InterchangeResult->ID."\" label=\"".$InterchangeResult->InterchangeName."\" seclected />";
                     }else{
                         echo "<option value=\"".$InterchangeResult->ID."\" label=\"".$InterchangeResult->InterchangeName."\" />";
                     }
