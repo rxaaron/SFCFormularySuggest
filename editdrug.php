@@ -22,7 +22,7 @@
 						$GN=$otherArray["GenericName"];
 						$STR=$otherArray["Strength"];
 				
-						echo "<tr><td><a href=\"drugproperties?id=".$ID."\">".$BN."</a></td><td>".$GN."</td><td>".$STR."</td></tr>";
+						echo "<tr><td><a href=\"drugproperties.php?id=".$ID."\">".$BN."</a></td><td>".$GN."</td><td>".$STR."</td></tr>";
 					}
 					echo "</table>";
 				}    
