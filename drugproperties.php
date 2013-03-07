@@ -39,10 +39,10 @@
                 echo "<tr><td>Strength:</td><td><input type=\"text\" name=\"strength\" size=\"30\" value=\"".$DrugResult->Strength."\" autocomplete=\"off\" /></td></tr>";
                 echo "<tr><td>Active in System:</td><td><input type=\"checkbox\" name=\"active\" value=\"".$DrugResult->Active."\" /></td></tr>";
                 echo "<tr><td>On SFC Formulary:</td><td><input type=\"checkbox\" name=\"springfield\" value=\"".$DrugResult->Springfield."\" /></td></tr>";
-                echo "<tr><td>Category:</td></td><select name=\"category\">";
-                while ($CategoryResult = $Categoryquery->fecth_object()){
+                echo "<tr><td>Category:</td><td><select name=\"category\">";
+                while ($CategoryResult = $Categoryquery->fetch_object()){
                     if($CategoryResult->ID==$DrugResult->Category){
-                        echo "<option value=\"".$CategoryResult->ID."\" label=\"".$CategoryResult->CategoryName."\" seclected />";
+                        echo "<option value=\"".$CategoryResult->ID."\" label=\"".$CategoryResult->CategoryName."\" selected />";
                     }else{
                         echo "<option value=\"".$CategoryResult->ID."\" label=\"".$CategoryResult->CategoryName."\" />";
                     }
@@ -51,7 +51,7 @@
                 echo "<tr><td>Interchange Name:</td><td><select name=\"interchange\">";
                 while ($InterchangeResult = $Interchangequery->fetch_object()){
                     if($InterchangeResult->ID==$DrugResult->InterchangeKey){
-                        echo "<option value=\"".$InterchangeResult->ID."\" label=\"".$InterchangeResult->InterchangeName."\" seclected />";
+                        echo "<option value=\"".$InterchangeResult->ID."\" label=\"".$InterchangeResult->InterchangeName."\" selected />";
                     }else{
                         echo "<option value=\"".$InterchangeResult->ID."\" label=\"".$InterchangeResult->InterchangeName."\" />";
                     }
