@@ -11,7 +11,7 @@
         </div>
         <div id="main">
 <?php
-	$db = new mysqli("serveraddress", "username" ,"password", "database");
+	$db = new mysqli("localhost", "root" ,"udd6zjat", "formularysuggest");
 	
 	if(!$db) {
             // Show error if we cannot connect.
