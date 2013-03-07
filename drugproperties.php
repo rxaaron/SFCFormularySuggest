@@ -37,8 +37,16 @@
                 echo "<tr><td>Brand Name:</td><td><input type=\"text\" name=\"brandname\" size=\"30\" value=\"".$DrugResult->BrandName."\" autocomplete=\"off\" /></td></tr>";
                 echo "<tr><td>Generic Name:</td><td><input type=\"text\" name=\"genericname\" size=\"30\" value=\"".$DrugResult->GenericName."\" autocomplete=\"off\" /></td></tr>";
                 echo "<tr><td>Strength:</td><td><input type=\"text\" name=\"strength\" size=\"30\" value=\"".$DrugResult->Strength."\" autocomplete=\"off\" /></td></tr>";
-                echo "<tr><td>Active in System:</td><td><input type=\"checkbox\" name=\"active\" value=\"".$DrugResult->Active."\" /></td></tr>";
-                echo "<tr><td>On SFC Formulary:</td><td><input type=\"checkbox\" name=\"springfield\" value=\"".$DrugResult->Springfield."\" /></td></tr>";
+                if($DrugResult->Active==1){
+                    echo "<tr><td>Active in System:</td><td><input type=\"checkbox\" name=\"active\" checked /></td></tr>";
+                }else{
+                    echo "<tr><td>Active in System:</td><td><input type=\"checkbox\" name=\"active\"/></td></tr>";
+                }
+                if($DrugResult->Springfield==1){
+                    echo "<tr><td>On SFC Formulary:</td><td><input type=\"checkbox\" name=\"springfield\" checked /></td></tr>";
+                }else{
+                    echo "<tr><td>On SFC Formulary:</td><td><input type=\"checkbox\" name=\"springfield\" /></td></tr>";
+                }
                 echo "<tr><td>Category:</td><td><select name=\"category\">";
                 while ($CategoryResult = $Categoryquery->fetch_object()){
                     if($CategoryResult->ID==$DrugResult->Category){
