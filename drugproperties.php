@@ -19,18 +19,46 @@
 	} else {
             if(isset($_GET['id'])) {
 		$queryString = $db->real_escape_string($_GET['id']);
-		$query = $db->query("SELECT D.ID, D.BrandName, D.GenericName, D.Strength, D.Active, C.CategoryName, I.InterchangeName,
-                                    D.Springfield FROM tblDrugs D
-                                    INNER JOIN tblCategory C ON D.Category=C.ID 
-                                    INNER JOIN tblInterchange I ON D.InterchangeKey=I.ID 
-                                    WHERE D.ID=".$queryString.";");
-		if($query) {
-			while ($result = $query ->fetch_object()) {
-				echo "html output";
-                        }
+		$Drugquery = $db->query("SELECT ID, BrandName, GenericName, Strength, Active, Category, InterchangeKey, Springfield 
+                                    FROM tblDrugs
+                                    WHERE ID=".$queryString.";");
+		if($Drugquery) {
+                    $DrugResult = $Drugquery ->fetch_object();
 		} else {
 			echo 'ERROR: There was a problem with the query.';
 		}
+                
+                $Categoryquery = $db->query("SELECT ID, CategoryName FROM tblCategory WHERE Active=true;");
+                $Interchangequery = $db->query("SELECT ID, InterchangeName FROM tblInterchange WHERE Active=true;");
+                
+                echo "<form action=\"updatedrug.php\" method=\"POST\" autocomplete=\"off\">";
+                echo "<table style=\"border:none\"><colgroup><col name=\"label\" style=\"width:250px;\"><col name=\"boxes\" style=\"width:300px;\"></colgroup>";
+                echo "<tr><td>Drug ID:</td><td><input type=\"text\" name=\"id\" size=\"30\" value=\"".$DrugResult->ID."\" autocomplete=\"off\" /></td></tr>";
+                echo "<tr><td>Brand Name:</td><td><input type=\"text\" name=\"brandname\" size=\"30\" value=\"".$DrugResult->BrandName."\" autocomplete=\"off\" /></td></tr>";
+                echo "<tr><td>Generic Name:</td><td><input type=\"text\" name=\"genericname\" size=\"30\" value=\"".$DrugResult->GenericName."\" autocomplete=\"off\" /></td></tr>";
+                echo "<tr><td>Strength:</td><td><input type=\"text\" name=\"strength\" size=\"30\" value=\"".$DrugResult->Strength."\" autocomplete=\"off\" /></td></tr>";
+                echo "<tr><td>Active in System:</td><td><input type=\"checkbox\" name=\"active\" value=\"".$DrugResult->Active."\" /></td></tr>";
+                echo "<tr><td>On SFC Formulary:</td><td><input type=\"checkbox\" name=\"springfield\" value=\"".$DrugResult->Springfield."\" /></td></tr>";
+                echo "<tr><td>Category:</td></td><select name=\"category\">";
+                while ($CategoryResult = $Categoryquery->fecth_object()){
+                    if($CategoryResult->ID==$DrugResult->Category){
+                        echo "<option value=\"".$CategoryResult->ID."\" label=\"".$CategoryResult->CategoryName."\" seclected />";
+                    }else{
+                        echo "<option value=\"".$CategoryResult->ID."\" label=\"".$CategoryResult->CategoryName."\" />";
+                    }
+                }
+                echo "</select></td></tr>";
+                echo "<tr><td>Interchange Name:</td><td><select name=\"interchange\">";
+                while ($InterchangeResult = $Interchangequery->fetch_object()){
+                    if($InterchangeResult->ID==$DrugResult->InterchangeKey){
+                        echo "<option value=\"".$InterchangeResultResult->ID."\" label=\"".$InterchangeResult->InterchangeName."\" seclected />";
+                    }else{
+                        echo "<option value=\"".$InterchangeResult->ID."\" label=\"".$InterchangeResult->InterchangeName."\" />";
+                    }
+                }
+                echo "</selected></td></tr></table>";
+                echo "<input type=\"submit\" name=\"gobtn\" value=\"Update Drug\" style=\"padding:10px 40px 10px 40px;\" />";
+                echo "</form>";                
             }
 	}
 ?>
