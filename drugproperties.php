@@ -11,6 +11,11 @@
         </div>
         <div id="main">
 <?php
+
+    session_start();
+        if(!isset($_SESSION["uid"])){
+            echo "<a href=\"administration.php\">Please Log In.</a>";
+	}else{
 	$db = new mysqli("localhost", "root" ,"udd6zjat", "formularysuggest");
 	
 	if(!$db) {
@@ -57,6 +62,7 @@
                 }
                 echo "</select></td></tr>";
                 echo "<tr><td>Interchange Name:</td><td><select name=\"interchange\">";
+                echo "option value=\"0\" label=\"(None}\" />";
                 while ($InterchangeResult = $Interchangequery->fetch_object()){
                     if($InterchangeResult->ID==$DrugResult->InterchangeKey){
                         echo "<option value=\"".$InterchangeResult->ID."\" label=\"".$InterchangeResult->InterchangeName."\" selected />";
@@ -64,11 +70,12 @@
                         echo "<option value=\"".$InterchangeResult->ID."\" label=\"".$InterchangeResult->InterchangeName."\" />";
                     }
                 }
-                echo "</selected></td></tr></table>";
+                echo "</select></td></tr></table>";
                 echo "<input type=\"submit\" name=\"gobtn\" value=\"Update Drug\" style=\"padding:10px 40px 10px 40px;\" />";
                 echo "</form>";                
             }
 	}
+   }
 ?>
         </div>
     </body>
