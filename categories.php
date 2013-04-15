@@ -1,22 +1,20 @@
 <?php
-	$mysqli = new mysqli("localhost","root","gmaprcb1","formularysuggest");
-		if (mysqli_connect_errno()){
-      printf("Connection failed: %s\n", mysqli_connect_error());
-      exit();
+	include_once('nogit/dbconn.php');
+		if (!$db){
+                    echo 'ERROR';
    }else{
-				$newsql = "SELECT ID, CategoryName FROM tblCategory WHERE Active = true;";
-				$newres = mysqli_query($mysqli, $newsql);
-			
-				if ($newres){
+				$newsql = $db->query("SELECT ID, CategoryName FROM tblCategory WHERE Active = true;");
+							
+				if ($newsql){
 				
 				
-					while ($otherArray = mysqli_fetch_array($newres,MYSQLI_ASSOC)){
-						$CID=$otherArray["ID"];
-						$CN=$otherArray["CategoryName"];
+					while ($newres = $newsql->fetch_object()){
+						$CID=$newres->ID;
+						$CN=$newres->CategoryName;
 						echo "<a href=\"#C".$CID."\" id=\"".$CID."\">".$CN."</a>";
 					}
       }    
     }
-        mysqli_close($mysqli);
+        mysqli_close($db);
         
 ?>
