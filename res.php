@@ -1,5 +1,5 @@
 <?php
-	$db = new mysqli("localhost", "root" ,"udd6zjat", "formularysuggest");
+	include_once('nogit/dbconn.php');
 
 	if(!$db) {
 		// Show error if we cannot connect.

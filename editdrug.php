@@ -4,23 +4,22 @@
 		if(!isset($_SESSION["uid"])){
 			echo "<a href=\"administration.php\">Please Log In.</a>";
 		}else{
-			$mysqli = new mysqli("localhost","root","udd6zjat","formularysuggest");
+			include_once('nogit/dbconn.php');
         
-			if (mysqli_connect_errno()){
-				printf("Connection failed: %s\n", mysqli_connect_error());
-				exit();
+			if (!$db){
+                            echo 'ERROR';
 			}else{
-				$newsql = "SELECT ID, BrandName, GenericName, Strength FROM tblDrugs ORDER BY BrandName, Strength;";
-				$newres = mysqli_query($mysqli, $newsql);
+				$query = $db->query("SELECT ID, BrandName, GenericName, Strength FROM tblDrugs ORDER BY BrandName, Strength;");
+				
 			
-				if ($newres){
+				if ($query){
 					echo "<table><colgroup><col class=\"brand\"><col class=\"generic\"><col class=\"strength\"></colgroup><tr><th>Brand Name</th><th>Generic Name</th><th>Strength</th></tr>";
 				
-					while ($otherArray = mysqli_fetch_array($newres,MYSQLI_ASSOC)){
-						$ID=$otherArray["ID"];
-						$BN=$otherArray["BrandName"];
-						$GN=$otherArray["GenericName"];
-						$STR=$otherArray["Strength"];
+					while ($result=$query->fetch_object()){
+						$ID=$result->ID;
+						$BN=$result->BrandName;
+						$GN=$result->GenericName;
+						$STR=$result->Strength;
 				
 						echo "<tr><td><a href=\"drugproperties.php?id=".$ID."\">".$BN."</a></td><td>".$GN."</td><td>".$STR."</td></tr>";
 					}
@@ -28,6 +27,6 @@
 				}    
 			}
 		}
-        mysqli_close($mysqli);
+        mysqli_close($db);
         
 ?>

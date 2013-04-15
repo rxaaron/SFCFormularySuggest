@@ -3,7 +3,7 @@
     if(!isset($_SESSION["uid"])){
         header("Location: administration.php");
     }else{
-        $db = new mysqli("localhost", "root" ,"udd6zjat", "formularysuggest");
+        include_once('nogit/dbconn.php');
         if(!$db) {
             // Show error if we cannot connect.
             echo 'ERROR: Could not connect to the database.';

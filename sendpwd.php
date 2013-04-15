@@ -2,7 +2,7 @@
     if(!isset($_POST["uname"])){
         header("Location: administration.php");
     }else{
-        $db = new mysqli("localhost", "root" ,"udd6zjat", "formularysuggest");
+        include_once('nogit/dbconn.php');
         if (!$db){
             echo "Connection error.  Please try again.";
         }else{

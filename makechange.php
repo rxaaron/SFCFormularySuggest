@@ -11,7 +11,7 @@
         if($oldpwd1!=$oldpwd2){
             echo "<html><body><br />The old passwords did not match.</body></html>";
         }else{
-            $db = new mysqli("localhost", "root" ,"udd6zjat", "formularysuggest");
+            include_once('nogit/dbconn.php');
             if(!$db) {
                 // Show error if we cannot connect.
                 echo 'ERROR: Could not connect to the database.';

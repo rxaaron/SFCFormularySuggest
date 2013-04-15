@@ -1,32 +1,29 @@
 <?php
-        $mysqli = new mysqli("localhost","root","udd6zjat","formularysuggest");
+        include_once('nogit/dbconn.php');
         
-        if (mysqli_connect_errno()){
-            printf("Connection failed: %s\n", mysqli_connect_error());
-            exit();
+        if (!$db){
+            echo 'ERROR';
         }else{
-			$newsql = "SELECT ID, CategoryName FROM tblCategory WHERE Active = true;";
-			$newres = mysqli_query($mysqli, $newsql);
-			
-			if ($newres){
+			$query =$db->query("SELECT ID, CategoryName FROM tblCategory WHERE Active = true;");
+
+			if ($query){
 				
 				
-				while ($otherArray = mysqli_fetch_array($newres,MYSQLI_ASSOC)){
-					$CID=$otherArray["ID"];
-					$CN=$otherArray["CategoryName"];
+				while ($result=$query->fetch_object()){
+					$CID=$result->ID;
+					$CN=$result->CategoryName;
 					echo "<a name=\"C".$CID."\"><h2 style=\"text-align:center;\">".$CN."</h2></a>";
 					
-					$sql = "SELECT BrandName, GenericName, Strength FROM tblDrugs WHERE Springfield = true AND Category = ".$CID." ORDER BY BrandName, Strength";
-					$res = mysqli_query($mysqli, $sql);
-					if ($res){
+					$sql =$db->query("SELECT BrandName, GenericName, Strength FROM tblDrugs WHERE Springfield = true AND Category = ".$CID." ORDER BY BrandName, Strength");
+					if ($sql){
                 
 						echo "<table><colgroup><col class=\"brand\"><col class=\"generic\"><col class=\"strength\"></colgroup><tr><th>Brand Name</th><th>Generic Name</th><th>Strength</th></tr>";
 						$c=true;
-						while ($newArray = mysqli_fetch_array($res,MYSQLI_ASSOC)){
+						while ($res=$sql->fetch_object()){
 							
-							$BN = $newArray["BrandName"];
-							$GN=$newArray["GenericName"];
-							$STR=$newArray["Strength"];
+							$BN = $res->BrandName;
+							$GN=$res->GenericName;
+							$STR=$res->Strength;
 							$LN=str_replace("/", " / ", $GN);
 							echo "<tr ".(($c=!$c)?'class="even"':'class="odd"')."><td>".$BN."</td><td>".$LN."</td><td>".$STR."</td></tr>";
 						}

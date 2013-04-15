@@ -16,7 +16,7 @@
         if(!isset($_SESSION["uid"])){
             echo "<a href=\"administration.php\">Please Log In.</a>";
 	}else{
-	$db = new mysqli("localhost", "root" ,"udd6zjat", "formularysuggest");
+	include_once('nogit/dbconn.php');
 	
 	if(!$db) {
             // Show error if we cannot connect.
