@@ -11,7 +11,7 @@ body
 /**Navigation Bar**/
 
 #navbar
-{position:absolute; top:0; left:0; width:100%; height:30px; padding-left:220px; overflow:hidden; background:#e0e0e0; border-bottom:2px solid #c0c0c0; text-align:left;}
+{position:absolute; display:inline; float:left; top:0; left:0; width:100%; height:30px; padding-left:220px; overflow:hidden; background:#e0e0e0; border-bottom:2px solid #c0c0c0; text-align:left;}
 
 body > #navbar
 {position:fixed;}
@@ -20,7 +20,7 @@ body > #navbar
 {list-style-type:none; margin-left:5px; padding:0 5px 10px 5px; margin-top:4px;}
 
 #navbar li
-{display:inline-block; color:#50477d; padding-top:2px; padding-bottom:5px; border-top:solid 2px #50477d; border-right:solid 2px #50477d; border-left:solid 2px #50477d; background:#d1d1d1; border-top-left-radius:15px; border-top-right-radius:15px;}
+{display:inline-block; float:left; color:#50477d; padding-top:2px; padding-bottom:5px; border-top:solid 2px #50477d; border-right:solid 2px #50477d; border-left:solid 2px #50477d; background:#d1d1d1; border-top-left-radius:15px; border-top-right-radius:15px;}
 
 #navbar li:hover
 {color:#303030; background:#fafafa;}
